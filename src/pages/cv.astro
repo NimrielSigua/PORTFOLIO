@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+   I am an Information Technology graduate specializing in web development with experience in creating websites, mobile applications, and comprehensive systems. I have hands-on experience in developing websites using Next.js, CSS, Tailwind CSS, and React-Bootstrap, and in building mobile applications with Flutter, Dart, and Firebase. My backend development skills include PHP, JavaScript, Python, C# (.NET), and MySQL. I am adept at integrating front-end and back-end technologies to build robust and scalable solutions. Known for my collaborative approach and enthusiasm for continuous learning, I am eager to contribute my technical expertise and innovative mindset to challenging projects.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Graduated"
+      subtitle="[2021] to [2025] at [Phinma-Cagayan De Oro College], [Cagayan De Oro], [Philippines]"
+    />
+
+  </div>
+
+  <!--<div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>-->
+<!--
+<div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Job Title at Project or Company Name"
+      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Job Title at Project or Company Name"
+      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Job Title at Project or Company Name"
+      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+    </TimeLineElement>
+  </div>
+    -->
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="" target="_blank">Wadhwani - (Employability Skills - Job Ready) -September 07, 2024</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Programming languages, 
+tools and framework</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6 mb-10">
+    <li>Dart | Flutter</li>
+    <li>JavaScript | Next.js</li>
+    <li>PHP | MySql</li>
+    <li>Python</li>
+    <li>C++</li>
+    <li>React-Bootstrap</li>
+    <li>Bootstrap</li>
+    <li>Tailwind</li>
+    <li>SHTML | CSS</li>
+    <li>SVS Code</li>
+    <li>Android Studio</li>
+    <li>PyCharm</li>
+    <li>GitHub</li>
+    <li>ASP.Net (C#)</li>
+  </ul>
+
+
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Core work skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Critical Thinking</li>
+    <li>Problem Solving</li>
+    <li>Teamwork & Collaboration</li>
+    <li>Leadership</li>
+    <li>Emotional intelligence</li>
+  </ul>
+
+</BaseLayout>

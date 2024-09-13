@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+---
+
+<BaseLayout sideBarActiveItemID="contact">
+  <div class="container">
+    <h1><span class="coffee-bean"></span>Contact Me</h1>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>Feel free to reach out using the information below or by filling out the form.</p>
+        <ul>
+            <li><FaEnvelope />nimriellonghassigua@gmail.com</li>
+          <li><FaPhone />+639365617954 | +639923319418</li>
+          <li><FaMapMarkerAlt />Bulua, Cagayan De Oro City Mis. Or.</li>
+        </ul>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/xpwaezzn" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Styles remain unchanged */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  h1 {
+    color: #6f4e37; /* Coffee brown */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .contact-info {
+    background-color: #e6d2b5; /* Light coffee color */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .contact-info h2 {
+    color: #4a3728;
+    margin-bottom: 1rem;
+  }
+  .contact-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #6f4e37;
+  }
+  .contact-info li :global(svg) {
+    margin-right: 0.5rem;
+  }
+  .coffee-decoration {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .contact-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #6f4e37;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d2b48c; /* Tan */
+    border-radius: 4px;
+  }
+  button {
+    background-color: #6f4e37;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #8b5a2b;
+  }
+  .coffee-bean {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+  :global(body) {
+    background-color: #f5e5d5; /* Light coffee color */
+    color: #4a3728; /* Dark coffee color */
+  }
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
