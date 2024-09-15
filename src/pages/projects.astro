@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
-import kauswaganLogo from "/Kauswagan-logo-final.png";  // Import the images
-import androidLogo from "/android.png";
+import { Image } from "astro:assets";
+
 ---
 
 <BaseLayout title = "Projects" sideBarActiveItemID="projects">
@@ -12,7 +12,7 @@ import androidLogo from "/android.png";
 
   <HorizontalCard
     title="Barangay Kauswagan Health Services Monitoring System"
-    img={kauswaganLogo}
+       <Image class="mask mask-circle" format="webp" width={300} height={300} src="/kauswagan-logo-final" alt="Profile image" />
     desc="The Barangay Kauswagan Health Services Monitoring System is designed to provide an efficient and streamlined solution for managing health center operations. This system aims to enhance the retrieval process and simplify the monitoring of health records, allowing the barangay health center to deliver improved services to its residents. With its user-friendly interface and organized record-keeping, the system ensures quick access to accurate information, promoting better healthcare management and more effective decision-making for the community."
     url="#"
     badge="NEW"
@@ -20,7 +20,7 @@ import androidLogo from "/android.png";
 
   <HorizontalCard
     title="TriviasTer"
-    img={androidLogo}
+   <Image class="mask mask-circle" format="webp" width={300} height={300} src="/android.jpg" alt="Profile image" />
     desc="project will be posted soon"
     url="#"
     badge="Soon"
