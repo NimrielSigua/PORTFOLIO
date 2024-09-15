@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+
 ---
 
 <BaseLayout sideBarActiveItemID="contact">
@@ -11,7 +12,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
         <h2>Get in Touch</h2>
         <p>Feel free to reach out using the information below or by filling out the form.</p>
         <ul>
-            <li><FaEnvelope />nimriellonghassigua@gmail.com</li>
+          <li><FaEnvelope />nimriellonghassigua@gmail.com</li>
           <li><FaPhone />+639365617954 | +639923319418</li>
           <li><FaMapMarkerAlt />Bulua, Cagayan De Oro City Mis. Or.</li>
         </ul>
@@ -36,14 +37,13 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 </BaseLayout>
 
 <style>
-  /* Styles remain unchanged */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
   }
   h1 {
-    color: #6f4e37; /* Coffee brown */
+    color: #C59F60;
     text-align: center;
     margin-bottom: 2rem;
   }
@@ -53,14 +53,21 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
     gap: 2rem;
   }
   .contact-info {
-    background-color: #e6d2b5; /* Light coffee color */
+    background-color: #DB924B;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+  input {
+    background-color: #e6d2b5;
+  }
+  textarea {
+    background-color: #e6d2b5;
+  }
   .contact-info h2 {
-    color: #4a3728;
+    color: #2F1C0D;
     margin-bottom: 1rem;
+    font-weight:bold;
   }
   .contact-info ul {
     list-style-type: none;
@@ -70,18 +77,13 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    color: #6f4e37;
+    color: #2F1C0D;
   }
   .contact-info li :global(svg) {
     margin-right: 0.5rem;
   }
-  .coffee-decoration {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
   .contact-form {
-    background-color: #fff;
+    background-color: #DB924B;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -89,18 +91,18 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
   label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #6f4e37;
+    color: #2F1C0D;
   }
   input, textarea {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #d2b48c; /* Tan */
+    border: 1px solid #d2b48c;
     border-radius: 4px;
   }
   button {
-    background-color: #6f4e37;
-    color: #fff;
+    background-color: #2F1C0D;
+    color: #DB924B;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
@@ -110,17 +112,50 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
   button:hover {
     background-color: #8b5a2b;
   }
-  .coffee-bean {
-    font-size: 2rem;
-    margin-right: 0.5rem;
-  }
   :global(body) {
-    background-color: #f5e5d5; /* Light coffee color */
-    color: #4a3728; /* Dark coffee color */
+    background-color: #f5e5d5;
+    color: #4a3728;
   }
+
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    .contact-info, .contact-form {
+      padding: 1.5rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .contact-grid {
       grid-template-columns: 1fr;
     }
+    h1 {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .container {
+      padding: 1rem;
+    }
+    .contact-info, .contact-form {
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    button {
+      width: 100%;
+    }
+  }
+
+  /* Additional responsive adjustments */
+  input, textarea {
+    font-size: 1rem;
   }
 </style>
