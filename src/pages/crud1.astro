@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout>
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">CRUD HTML | JS | PHP</div>
+  </div>
+
+  <div class="mt-16">
+    <h1 class="font-bold text-2xl">CONNECTION</h1>
+    <p>
+      To connect to a MySQL database called <code>dbhospital</code> hosted on
+      <code>localhost</code> using the username <code>root</code> and no password.
+      If the connection fails, it displays an error message.
+    </p>
+
+
+    <div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4">
+     <pre><code class="language-php">
+&lt;?php
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "database_name";
+
+    try &#123;
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    &#125; catch(PDOException $e) &#123;
+        echo "Connection failed: " . $e->getMessage();
+        die;  
+    &#125;
+?&gt;
+    </code></pre>
+    </div>
+
+<div class="mt-16">
+    <h1 align="center" class="font-bold text-2xl">PHP Backend Code</h1>
+    <p>
+     The purpose of your PHP code is to act as a simple back-end API that allows you to create, read, update, and delete (CRUD) user records in a database via HTTP requests, using Object-Oriented Programming (OOP) for better structure and reusability.
+    </p>
+ <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Class</h1>
+    <p>
+     a class is a blueprint for creating objects. It helps organize code and group related functionality together. The main purpose of using a class is to implement Object-Oriented Programming (OOP), which improves modularity, reusability, and maintainability.
+    </p>
+<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4">
+     <pre><code class="language-php">
+&lt;?php
+class User  &#123
+    function save($json)(
+      //put here the save function logic
+    );
+    function getRecords(
+      //put here the getRecords function logic
+    );
+    function update($json)(
+      //put here the update function logic
+    );
+    function delete($json)(
+      //put here the delete function logic
+    );
+ &#125
+?&gt;
+    </code></pre>
+    </div>
+</div>
+
+
+<div class="mt-16">
+    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Function save</h1>
+    <p>
+      it can be use to save data to the database. It should be able to handle the data sent from the frontend and save it to database.
+    </p>
+    
+
+<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4">
+     <pre><code class="language-php">
+&lt;?php
+class User  &#123
+    function save($json)(
+      include "connection.php";
+        $json = json_decode($json, true);
+
+        $fname = $json['fname'];
+        $mname = $json['mname'];
+        $lname = $json['lname'];
+
+        $sql = "INSERT INTO user (fname, mname, lname) VALUES (:firstName, :middlename,
+         :lastName)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":firstName", $fname);
+        $stmt->bindParam(":middlename", $mname);
+        $stmt->bindParam(":lastName", $lname);
+
+        $stmt->execute();
+        $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+
+        return $returnValue;
+    );
+    
+ &#125
+?&gt;
+    </code></pre>
+    </div>
+</div>
+
+</BaseLayout>
