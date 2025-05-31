@@ -4,42 +4,100 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
 <BaseLayout>
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">CRUD HTML | JS | PHP with jQuery</div>
-  </div>
+  <div class="text-3xl font-bold mb-6">CRUD HTML | JS | PHP with jQuery</div>
 
-  
-<a href="https://github.com/NimrielSigua/crud1" class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            style="fill: currentColor;transform: ;msFilter:;"
-            ><path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
-            ></path>
-        </svg>    <span class="w-full">View Source Code</span>
-    <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+  <a
+    href="https://github.com/NimrielSigua/crud1"
+    class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      style="fill: currentColor;transform: ;msFilter:;"
+      ><path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+      ></path>
     </svg>
-</a> 
+    <span class="w-full">View Source Code</span>
+    <svg
+      class="w-4 h-4 ms-2 rtl:rotate-180"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 14 10"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+    </svg>
+  </a>
+
+  <div class="tabs-lift mt-10">
+    <!-- Tab 1 -->
+   <!-- Tab 1 -->
+<input
+  type="radio"
+  name="my_tabs_3"
+  id="tab1"
+  class="hidden peer/tab1"
+  checked
+/>
+<label data-theme="luxury"
+  for="tab1"
+  class="inline-block cursor-pointer peer-checked/tab1:bg-orange-500 peer-checked/tab1:text-white peer-checked/tab1:font-bold px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 transition"
+>
+  Normal Crud
+</label>
+
+<!-- Tab 2 -->
+<input type="radio" name="my_tabs_3" id="tab2" class="hidden peer/tab2" />
+<label data-theme="luxury"
+  for="tab2"
+  class="cursor-pointer px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 peer-checked/tab2:bg-orange-500 peer-checked/tab2:text-white peer-checked/tab2:font-bold transition"
+>
+  Select Option Crud
+</label>
+
+<!-- Tab 2 Content -->
+<div
+  class="tab-content bg-base-100 border-base-300 p-6 hidden peer-checked/tab2:block"
+>
+  world
+</div>
 
 
-  <div class="mt-16">
-    <h1 class="font-bold text-2xl">CONNECTION</h1>
-    <p>
-      To connect to a MySQL database called <code>dbhospital</code> hosted on
-      <code>localhost</code> using the username <code>root</code> and no password.
-      If the connection fails, it displays an error message.
-    </p>
+    <div
+      class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block"
+    >
+      <div class="mx-auto max-w-5xl w-full">
+        <!-- All your CRUD content here, e.g.: -->
+        <h1 class="text-center text-3xl font-bold border-b-4">
+          Normal Crud
+        </h1>
 
+        <!-- CONNECTION Section -->
+        <div class="mt-5">
+          <h1 class="font-bold text-2xl">CONNECTION</h1>
+          <p>
+            To connect to a MySQL database called <code>dbhospital</code> hosted
+            on
+            <code>localhost</code> using the username <code>root</code> and no password.
+            If the connection fails, it displays an error message.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
     $servername = "localhost";
     $dbusername = "root";
@@ -55,21 +113,33 @@ import HorizontalCard from "../components/HorizontalCard.astro";
         die;  
     &#125;
 ?&gt;
-    </code></pre>
-    </div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
-<div class="mt-16">
-    <h1 align="center" class="font-bold text-2xl">PHP Backend Code</h1>
-    <p>
-     The purpose of your PHP code is to act as a simple back-end API that allows you to create, read, update, and delete (CRUD) user records in a database via HTTP requests, using Object-Oriented Programming (OOP) for better structure and reusability.
-    </p>
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Class</h1>
-    <p>
-     a class is a blueprint for creating objects. It helps organize code and group related functionality together. The main purpose of using a class is to implement Object-Oriented Programming (OOP), which improves modularity, reusability, and maintainability.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+        <!-- PHP Backend Code Section -->
+        <div class="mt-16">
+          <h1 class="text-center font-bold text-2xl">PHP Backend Code</h1>
+          <p>
+            The purpose of your PHP code is to act as a simple back-end API that
+            allows you to create, read, update, and delete (CRUD) user records
+            in a database via HTTP requests, using Object-Oriented Programming
+            (OOP) for better structure and reusability.
+          </p>
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">Class</h1>
+          <p>
+            a class is a blueprint for creating objects. It helps organize code
+            and group related functionality together. The main purpose of using
+            a class is to implement Object-Oriented Programming (OOP), which
+            improves modularity, reusability, and maintainability.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 class User  &#123
     function save($json)&#123
@@ -86,21 +156,27 @@ class User  &#123
     &#125;
  &#125
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Function save Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Function save
+          </h1>
+          <p>
+            it can be use to save data to the database. It should be able to
+            handle the data sent from the frontend and save it to database.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Function save</h1>
-    <p>
-      it can be use to save data to the database. It should be able to handle the data sent from the frontend and save it to database.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 
     function save($json)&#123
@@ -136,21 +212,28 @@ class User  &#123
     &#125;
     
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Function getRecords Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Function getRecords
+          </h1>
+          <p>
+            The purpose of the getRecords() function is to retrieve (Read) all
+            user records from the user table in your database and return them as
+            a JSON-encoded array.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Function getRecords</h1>
-    <p>
-        The purpose of the getRecords() function is to retrieve (Read) all user records from the user table in your database and return them as a JSON-encoded array.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 
     function getRecords()&#123
@@ -176,21 +259,27 @@ class User  &#123
     &#125;
     
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Function update Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Function update
+          </h1>
+          <p>
+            The purpose of the delete($json) function is to delete a user from
+            the database based on their id.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Function update</h1>
-    <p>
-      The purpose of the delete($json) function is to delete a user from the database based on their id.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 
     function getRecords()&#123
@@ -226,21 +315,28 @@ class User  &#123
     &#125
     
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Function delete Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Function delete
+          </h1>
+          <p>
+            The purpose of the update($json) function is to update an existing
+            user's data (first name, middle name, last name) in the user table
+            based on their id.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Function delete</h1>
-    <p>
-      The purpose of the update($json) function is to update an existing user's data (first name, middle name, last name) in the user table based on their id.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 
     function getRecords()&#123
@@ -268,21 +364,27 @@ class User  &#123
     &#125
     
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- API Endpoint Handler Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            API Endpoint Handler
+          </h1>
+          <p>
+            To route requests to the appropriate method of the User class based
+            on what the client wants to do save, get, update, or delete a user.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">API Endpoint Handler</h1>
-    <p>
-      To route requests to the appropriate method of the User class based on what the client wants to do save, get, update, or delete a user.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="language-php">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
 &lt;?php
 
 // Get the 'json' data from the POST request. If not set, default to an empty string.
@@ -320,24 +422,33 @@ switch($operation)&#123
 
     
 ?&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
-
-
-<div class="mt-16">
-    <h1 align="center" class="font-bold text-2xl">HTML Code</h1>
-    <p>
-     HTML (HyperText Markup Language) is the standard language used to create and structure content on the web. Its main purpose is to define the structure and layout of a web page.
-    </p>
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Libraries and Frameworks</h1>
-    <p>
-     Libraries and frameworks are collections of pre-written code that help developers avoid reinventing the wheel. They provide tools, functions, and components to build software faster and easier.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-    <code class="html">
+        <!-- HTML Code Section -->
+        <div class="mt-16">
+          <h1 class="text-center font-bold text-2xl">HTML Code</h1>
+          <p>
+            HTML (HyperText Markup Language) is the standard language used to
+            create and structure content on the web. Its main purpose is to
+            define the structure and layout of a web page.
+          </p>
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Libraries and Frameworks
+          </h1>
+          <p>
+            Libraries and frameworks are collections of pre-written code that
+            help developers avoid reinventing the wheel. They provide tools,
+            functions, and components to build software faster and easier.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+              <code class="html">
 &lt;!-- jQuery --&gt;
 &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"&gt;&lt;/script&gt;
 
@@ -355,34 +466,42 @@ switch($operation)&#123
 
 &lt;!-- Axios --&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"&gt;&lt;/script&gt;
-    </code>
-  </pre>
-</div>
-</div>
+              </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Add User Modal Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Add User Modal
+          </h1>
+          <p>
+            This is where you can input the data or inforation you like to put
+            inside the database.
+          </p>
 
-
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Add User Modal</h1>
-    <p>
-      This is where you can input the data or inforation you like to put inside the database.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="html">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="html">
 &lt;button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
     type="button"&gt;
     Add Data
 &lt;/button&gt;
-    </code></pre>
-    </div>
+                </code>
+            </pre>
+          </div>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-     <code class="html">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="html">
 &lt;div id="authentication-modal" tabindex="-1" aria-hidden="true"
             class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"&gt;
             &lt;div class="bg-white p-6 rounded-lg w-full max-w-md"&gt;
@@ -411,21 +530,28 @@ switch($operation)&#123
                 &lt;/form&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    </code></pre>
-    </div>
-</div>
+                </code>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Data Tables Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Data Tables
+          </h1>
+          <p>
+            tables are used to display data in a structured format. They are
+            useful for displaying large amounts of data. this is an example of a
+            table with data using jQuery.
+          </p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Data Tables</h1>
-    <p>
-      tables are used to display data in a structured format. They are useful for displaying large amounts of data. this is an example of a table with data using jQuery.
-    </p>
-    
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-html">&lt;table id="systemTable" class="display w-full"&gt;
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-html">&lt;table id="systemTable" class="display w-full"&gt;
     &lt;thead&gt;
         &lt;tr class="bg-gray-200 text-sm text-gray-700 uppercase tracking-wider"&gt;
             &lt;th&gt;Firstname&lt;/th&gt;
@@ -437,20 +563,23 @@ switch($operation)&#123
     &lt;tbody class="bg-white divide-y divide-gray-200"&gt;&lt;/tbody&gt;
 &lt;/table&gt;
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
+        <!-- Update User Modal Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Update User Modal
+          </h1>
+          <p>This is where you can edit the data or inforation.</p>
 
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Update User Modal</h1>
-    <p>
-      This is where you can edit the data or inforation.
-    </p>
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-html">&lt;div id="edit-modal" tabindex="-1" aria-hidden="true"
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-html">&lt;div id="edit-modal" tabindex="-1" aria-hidden="true"
   class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"&gt;
   &lt;div class="bg-white p-6 rounded-lg w-full max-w-md"&gt;
     &lt;div class="flex justify-between items-center pb-4 border-b"&gt;
@@ -478,21 +607,23 @@ switch($operation)&#123
   &lt;/div&gt;
 &lt;/div&gt;
 </code>
-  </pre>
-</div>
+            </pre>
+          </div>
+        </div>
 
-</div>
+        <!-- Delete Confirmation Modal Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            Delete Confirmation Modal
+          </h1>
+          <p>This is a delete confirmation modal.</p>
 
-
-<div class="mt-16">
-    <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">Delete Confirmation Modal</h1>
-    <p>
-      This is a delete confirmation modal.
-    </p>
-
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-html">&lt;div id="popup-modal" tabindex="-1"
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-html">&lt;div id="popup-modal" tabindex="-1"
   class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"&gt;
   &lt;div class="relative p-4 w-full max-w-md max-h-full"&gt;
     &lt;div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"&gt;
@@ -525,48 +656,63 @@ switch($operation)&#123
   &lt;/div&gt;
 &lt;/div&gt;
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-
-<div class="mt-16">
-    <h1 align="center" class="font-bold text-2xl">Javascript Code</h1>
-    <p>
-     JavaScript is a programming language primarily used to make web pages interactive and dynamic. While HTML structures the page and CSS styles it, JavaScript adds behavior to the page.
-    </p>
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">DOM</h1>
-    <p>
-     The DOM stands for Document Object Model, and its purpose is to represent the structure of a web page as a tree of objects so that programming languages like JavaScript can interact with, modify, and control the content and structure of the HTML document.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">document.addEventListener("DOMContentLoaded", function () &#123
+        <!-- Javascript Code Section -->
+        <div class="mt-16">
+          <h1 class="text-center font-bold text-2xl">Javascript Code</h1>
+          <p>
+            JavaScript is a programming language primarily used to make web
+            pages interactive and dynamic. While HTML structures the page and
+            CSS styles it, JavaScript adds behavior to the page.
+          </p>
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">DOM</h1>
+          <p>
+            The DOM stands for Document Object Model, and its purpose is to
+            represent the structure of a web page as a tree of objects so that
+            programming languages like JavaScript can interact with, modify, and
+            control the content and structure of the HTML document.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">document.addEventListener("DOMContentLoaded", function () &#123
   // All your code here
 &#125);</code>
-  </pre>
-</div>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+            </pre>
+          </div>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 const getServerUrl = async () => "http://localhost/file_Path.php";
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-
-<div class="mt-16">
-    
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">saveUser</h1>
-    <p>
-     The purpose of the saveUser function is to handle the process of submitting new user data from a form to the server and then update the webpage accordingly.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+        <!-- saveUser Function Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            saveUser
+          </h1>
+          <p>
+            The purpose of the saveUser function is to handle the process of
+            submitting new user data from a form to the server and then update
+            the webpage accordingly.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // Function to save user data when the form is submitted
 const saveUser = async (event) => &#123
 
@@ -624,33 +770,43 @@ const saveUser = async (event) => &#123
 $("#addUserForm").on("submit", saveUser);
 
 </code>
-  </pre>
-</div>
+            </pre>
+          </div>
 
-<p class="mt-4">
-When the user submits the form named addUserForm, run the saveUser function.
-</p>
+          <p class="mt-4">
+            When the user submits the form named addUserForm, run the saveUser
+            function.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full h-fit">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full h-fit"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 $("#addUserForm").on("submit", saveUser);
 
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-<div class="mt-16">
-    
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">displayRecords</h1>
-    <p>
-     This function displayRecords displays user data in a responsive table using DataTables, and adds Edit and Delete buttons for each row with the user’s data embedded as data-* attributes.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+        <!-- displayRecords Function Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            displayRecords
+          </h1>
+          <p>
+            This function displayRecords displays user data in a responsive
+            table using DataTables, and adds Edit and Delete buttons for each
+            row with the user’s data embedded as data-* attributes.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 const displayRecords = (data) => &#123
 
     // If the DataTable already exists on #systemTable, destroy it to avoid duplication
@@ -693,20 +849,26 @@ const displayRecords = (data) => &#123
 &#125;
 
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-<div class="mt-16">
-    
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">updateUser</h1>
-    <p>
-     The purpose of the saveUser function is to handle the process of submitting new user data from a form to the server and then update the webpage accordingly.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+        <!-- updateUser Function Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            updateUser
+          </h1>
+          <p>
+            The purpose of the saveUser function is to handle the process of
+            submitting new user data from a form to the server and then update
+            the webpage accordingly.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // Define an async function called updateUser that runs when a form is submitted
 const updateUser = async (event) => &#123
     event.preventDefault(); // Prevent the default form submission (page reload)
@@ -747,16 +909,21 @@ const updateUser = async (event) => &#123
 
 
 </code>
-  </pre>
-</div>
+            </pre>
+          </div>
 
-<p class="mt-4">
-This code listens for a click on any Edit button inside the #systemTable and opens the edit modal with that user's data pre-filled in the form fields.
-</p>
+          <p class="mt-4">
+            This code listens for a click on any Edit button inside the
+            #systemTable and opens the edit modal with that user's data
+            pre-filled in the form fields.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // When any element with the class .edit-btn is clicked inside the #systemTable
 $("#systemTable").on("click", ".edit-btn", function () &#123
     
@@ -780,32 +947,40 @@ $("#systemTable").on("click", ".edit-btn", function () &#123
 &#125);
 
 </code>
-  </pre>
-</div>
-<p class="mt-4">
-When the user submits the form with the ID editUserForm, run the updateUser function instead of the default form submission
-</p>
+            </pre>
+          </div>
+          <p class="mt-4">
+            When the user submits the form with the ID editUserForm, run the
+            updateUser function instead of the default form submission
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full h-fit">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full h-fit"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 $("#editUserForm").on("submit", updateUser);
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-
-<div class="mt-16">
-    
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">fetchRecords</h1>
-    <p>
-     It retrieves the list of users from the server and displays them in a table on the page.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+        <!-- fetchRecords Function Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            fetchRecords
+          </h1>
+          <p>
+            It retrieves the list of users from the server and displays them in
+            a table on the page.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // Define an asynchronous function to fetch user records from the server
 const fetchRecords = async () => &#123
     // Get the URL of the server where the PHP backend is hosted
@@ -835,21 +1010,25 @@ const fetchRecords = async () => &#123
     &#125
 &#125;
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
 
-
-
-<div class="mt-16">
-    
- <h1 class="font-bold text-2xl border-b-4 w-fit  pr-3 mt-3">deleteRecords</h1>
-    <p>
-     The deleteUser function sends a request to delete a user based on their ID and updates the user list on success.
-    </p>
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-auto max-w-full">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+        <!-- deleteRecords Function Section -->
+        <div class="mt-16 mb-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            deleteRecords
+          </h1>
+          <p>
+            The deleteUser function sends a request to delete a user based on
+            their ID and updates the user list on success.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // Define an asynchronous function to delete a user
 const deleteUser = async () => &#123
     // Get the server URL using a helper function
@@ -893,16 +1072,21 @@ const deleteUser = async () => &#123
     &#125
 &#125;
 </code>
-  </pre>
-</div>
+            </pre>
+          </div>
 
-<p class="mt-4">
-This code listens for clicks on the delete button in the user table, stores the selected user's ID in a confirmation modal, and then shows the modal so the user can confirm deletion.
-</p>
+          <p class="mt-4">
+            This code listens for clicks on the delete button in the user table,
+            stores the selected user's ID in a confirmation modal, and then
+            shows the modal so the user can confirm deletion.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full h-fit">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full h-fit"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
 // When a delete button inside the #systemTable is clicked
 $("#systemTable").on("click", ".delete-btn", function () &#123
     
@@ -918,35 +1102,45 @@ $("#systemTable").on("click", ".delete-btn", function () &#123
 &#125);
 
 </code>
-  </pre>
-</div>
-<p class="mt-4">
-When the button with the ID confirm-delete-btn is clicked, run the deleteUser function.
-</p>
+            </pre>
+          </div>
+          <p class="mt-4">
+            When the button with the ID confirm-delete-btn is clicked, run the
+            deleteUser function.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full h-fit">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full h-fit"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
   $("#confirm-delete-btn").on("click", deleteUser);
 </code>
-  </pre>
-</div>
-<p class="mt-4">
-These lines make sure that clicking those buttons or elements will close/hide their respective modals or popups. It helps control the visibility of UI dialogs for editing and deleting users.
-</p>
+            </pre>
+          </div>
+          <p class="mt-4">
+            These lines make sure that clicking those buttons or elements will
+            close/hide their respective modals or popups. It helps control the
+            visibility of UI dialogs for editing and deleting users.
+          </p>
 
-<div class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-auto max-w-full h-fit">
-  <pre class="whitespace-pre text-sm">
-<code class="language-js">
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md overflow-x-auto max-w-full h-fit"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+          <code class="language-js">
   $("#hide-edit-modal").click(() => $("#edit-modal").addClass("hidden"));
     $("#popup-close, #cancel-delete-btn").on("click", () => &#123
         $("#popup-modal").addClass("hidden");
     &#125);
 </code>
-  </pre>
-</div>
-</div>
+            </pre>
+          </div>
+        </div>
+      </div>
 
-
-
+    </div>
+  </div>
 </BaseLayout>
