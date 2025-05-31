@@ -1,6 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
+import { SiFlutter,SiDart, SiJavascript, SiPhp, SiPhpmyadmin, SiMysql,
+   SiPython, SiReactbootstrap,SiBootstrap,SiTailwindcss, SiHtml5, SiCss3} from "react-icons/si";
+import { RiNextjsFill, RiGithubFill } from "react-icons/ri";
+import { VscVscode } from "react-icons/vsc";
+
+
+
+
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
@@ -84,19 +92,80 @@ I am an Information Technology graduate with a specialization in web development
 tools and framework</div>
   </div>
 
-  <ul class="list-disc md:columns-5 columns-2 mx-6 mb-10">
-    <li>Dart | Flutter</li>
-    <li>JavaScript | Next.js</li>
-    <li>PHP | MySql</li>
-    <li>Python</li>
-    <li>React-Bootstrap</li>
-    <li>Bootstrap</li>
-    <li>Tailwind</li>
-    <li>HTML | CSS</li>
-    <li>VS Code</li>
-    <li>Android Studio</li>
-    <li>GitHub</li>
-  </ul>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-6 mb-10">    <div class="flex gap-2 mb-2">
+      <SiDart size={25}/> {/* Dart icon */}
+      <span class="text-lg">Dart</span>
+    </div>
+    <div class="flex gap-2 mb-2">
+      <SiFlutter size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Flutter</span>
+    </div>
+    <div class="flex gap-2 mb-2">
+      <SiJavascript  size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Javascript</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <RiNextjsFill size={25}/> {/* Flutter icon */}
+      <span class="text-lg">next.Js</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiPhp size={25}/> {/* Flutter icon */}
+      <span class="text-lg">PHP</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiPhpmyadmin size={25}/> {/* Flutter icon */}
+      <span class="text-lg">PHPmyadmin</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiMysql  size={25}/> {/* Flutter icon */}
+      <span class="text-lg">MySQL</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiPython   size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Python</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiReactbootstrap    size={25}/> {/* Flutter icon */}
+      <span class="text-lg">React Bootstrap</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiBootstrap     size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Bootstrap</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiTailwindcss size={25}/> {/* Flutter icon */}
+      <span class="text-lg">tailwind</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiHtml5 size={25}/> {/* Flutter icon */}
+      <span class="text-lg">HTML</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <SiCss3 size={25}/> {/* Flutter icon */}
+      <span class="text-lg">CSS</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <VscVscode size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Vs code</span>
+    </div>
+
+    <div class="flex gap-2 mb-2">
+      <RiGithubFill size={25}/> {/* Flutter icon */}
+      <span class="text-lg">Github</span>
+    </div>
+
+  </div>
 
 
 

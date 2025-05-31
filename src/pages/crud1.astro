@@ -67,12 +67,361 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
 <!-- Tab 2 Content -->
 <div
-  class="tab-content bg-base-100 border-base-300 p-6 hidden peer-checked/tab2:block"
+  class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab2:block">
+
+  <div class="mx-auto max-w-5xl w-full">
+     
+    
+    <h1 class="text-center text-3xl font-bold border-b-4">
+          Select Option Crud
+        </h1>
+
+        <!-- CONNECTION Section -->
+        <div class="mt-5">
+          <h1 class="font-bold text-2xl">CONNECTION</h1>
+          <p>
+            To connect to a MySQL database called <code>dbhospital</code> hosted
+            on
+            <code>localhost</code> using the username <code>root</code> and no password.
+            If the connection fails, it displays an error message.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+&lt;?php
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "database_name";
+
+    try &#123;
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    &#125; catch(PDOException $e) &#123;
+        echo "Connection failed: " . $e->getMessage();
+        die;  
+    &#125;
+?&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+
+        <!-- PHP Backend Code Section -->
+        <div class="mt-16">
+          <h1 class="text-center font-bold text-2xl">PHP Backend Code</h1>
+          <p>
+            The purpose of your PHP code is to act as a simple back-end API that
+            allows you to create, read, update, and delete (CRUD) user records
+            in a database via HTTP requests, using Object-Oriented Programming
+            (OOP) for better structure and reusability.
+          </p>
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">Class Description</h1>
+          <p>
+            a class is a blueprint for creating objects. It helps organize code
+            and group related functionality together. The main purpose of using
+            a class is to implement Object-Oriented Programming (OOP), which
+            improves modularity, reusability, and maintainability.
+          </p>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+&lt;?php
+class Description
+&#123
+    function saveDescription($json)
+    &#123
+        include "connection.php";
+
+        $json = json_decode($json, true);
+
+        $user_id = $json['user_id'];
+        $description = $json['description'];
+
+        $sql = "INSERT INTO details (user_id, description) VALUES (:user_id, :description)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":user_id", $user_id);
+        $stmt->bindParam(":description", $description);
+        $stmt->execute();
+        $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+
+        return $returnValue;
+    &#125;
+
+    function getDescriptionRecords()
+    &#123
+        include "connection.php";
+
+        $sql = "SELECT 
+                details.id,
+                user_id,
+                  CONCAT(lname, ' ', fname, ' ', mname) AS fullname,
+                  description
+                FROM details
+                INNER JOIN user ON user.id = details.user_id;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $returnValue = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $conn = null; 
+        $stmt = null;  
+        return json_encode($returnValue);       
+    &#125;
+
+    function updateDescription($json)
+    &#123
+        include "connection.php";
+
+        $json = json_decode($json, true);
+
+        $id = $json['id'];
+        $user_id = $json['user_id'];
+        $description = $json['description'];
+
+        $sql = "UPDATE details SET user_id = :user_id, description = :description WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":user_id", $user_id);
+        $stmt->bindParam(":description", $description);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+
+        return $returnValue;
+    &#125;
+
+    function deleteDescription($json)
+    &#123
+        include "connection.php";
+
+        $json = json_decode($json, true);
+
+        $id = $json['id'];
+
+        $sql = "DELETE FROM details WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+
+        return $returnValue;
+    &#125;
+&#125
+?&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+
+        <!-- Function save Section -->
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">
+            API Endpoint Handler
+          </h1>
+          <p>
+            To route requests to the appropriate method of the User class based on what the client wants to do save, get, update, or delete a user.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+&lt;?php
+
+$json = isset($_POST['json']) ? $_POST['json'] : '';
+$operation = isset($_POST['operation']) ? $_POST['operation'] : '';
+
+$description = new Description();
+
+switch ($operation) &#123
+    case "saveDescription":
+        echo $description->saveDescription($json);
+        break;
+    case "getDescriptionRecords":
+        echo $description->getDescriptionRecords();
+        break;
+    case "updateDescription":
+        echo $description->updateDescription($json);
+        break;
+    case "deleteDescription":
+        echo $description->deleteDescription($json);
+        break;
+&#125
+    
+?&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+
+
+          <div class="mt-16">
+          <h1 class="text-center font-bold text-2xl">HTML Code</h1>
+          <p>
+           HTML (HyperText Markup Language) is the standard language used to create and structure content on the web. Its main purpose is to define the structure and layout of a web page.
+          </p>
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">Modal Toggle</h1>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="html">
+ &lt; div class="flex justify-center mt-5 flex flex-col gap-3 items-center"&gt;
+                &lt;button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button" &gt;
+                    Toggle modal
+                &lt; /button &gt;
+            &lt;/div&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+
+        <!-- Add Description Modal Section -->
+          <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">Description Modal</h1>
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="html">
+  &lt;div id="crud-modal" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"&gt;
+            &lt;div class="relative p-4 w-full max-w-md max-h-full"&gt;
+                <!-- Modal content -->
+                &lt;div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"&gt;
+                    <!-- Modal header -->
+                    &lt;div
+                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200"&gt;
+                        &lt;h3 class="text-lg font-semibold text-gray-900 dark:text-white"&gt;
+                            Create New Product
+                        &lt;/h3&gt;
+                        &lt;button type="button" id="closeselectmodalbtn"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="crud-modal"&gt;
+                            &lt;svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14"&gt;
+                                &lt;path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" /&gt;
+                            &lt;/svg&gt;
+                            &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                    <!-- Modal body -->
+                    &lt;form id="addDescriptionForm" class="p-4 md:p-5"&gt;
+                        &lt;div class="grid gap-4 mb-4 grid-cols-2"&gt;
+                            &lt;div class="col-span-2"&gt;
+                                &lt;label for="category"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category&lt;/label&gt;
+                                &lt;select id="category"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"&gt;
+                                    <!-- Options go here -->
+                                &lt;/select &gt;
+                            &lt;/div&gt;
+                            &lt;div class="col-span-2"&gt;
+                                &lt;label for="description"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"&gt; Product
+                                    Description&lt;/label&gt;
+                                &lt;textarea id="description" rows="4"
+                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Write product description here"&gt;  &lt;/textarea&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;button type="submit"
+                            class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"&gt;
+                            Add new product
+                        &lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div &gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+
+
+          <div class="mt-16">
+          <h1 class="font-bold text-2xl border-b-4 w-fit pr-3 mt-3">Edit Description Modal</h1>
+<div
+  class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
 >
-  world
+  <pre class="whitespace-pre text-sm">
+    <code class="html">
+&lt;div id="edit-crud-modal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"&gt;
+  &lt;div class="relative p-4 w-full max-w-md max-h-full"&gt;
+    &lt;!-- Modal content --&gt;
+    &lt;div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"&gt;
+      &lt;!-- Modal header --&gt;
+      &lt;div
+        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200"&gt;
+        &lt;h3 class="text-lg font-semibold text-gray-900 dark:text-white"&gt;
+          Create New Product
+        &lt;/h3&gt;
+        &lt;button type="button" id="closeselectmodalbtn"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="edit-crud-modal"&gt;
+          &lt;svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 14"&gt;
+            &lt;path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" /&gt;
+          &lt;/svg&gt;
+          &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;!-- Modal body --&gt;
+      &lt;form id="editDescriptionForm" class="p-4 md:p-5"&gt;
+        &lt;div class="grid gap-4 mb-4 grid-cols-2"&gt;
+          &lt;div class="col-span-2"&gt;
+            &lt;label for="edit-category"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"&gt;Category&lt;/label&gt;
+            &lt;select id="edit-category"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"&gt;
+              &lt;!-- Options go here --&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class="col-span-2"&gt;
+            &lt;label for="edit-description"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"&gt;Product Description&lt;/label&gt;
+            &lt;textarea id="edit-description" rows="4"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Write product description here"&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button type="submit"
+          class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"&gt;
+          Add new product
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </code>
+  </pre>
+</div>
+
+        </div>
+
+
+  </div>
 </div>
 
 
+
+
+<!-- Normal Crud Section -->
     <div
       class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block"
     >
