@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
 <BaseLayout>
-  <div class="text-3xl font-bold mb-6">Register & Login HTML | JS | PHP</div>
+  <div class="text-3xl font-bold mb-6">Register & Login HTML | JS | PHP | MySQL</div>
 
-  <!-- <a
-    href="https://github.com/NimrielSigua/crud1"
+  <a
+    href="https://github.com/NimrielSigua/register_login"
     class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
   >
     <svg
@@ -37,11 +36,11 @@ import HorizontalCard from "../components/HorizontalCard.astro";
         stroke-width="2"
         d="M1 5h12m0 0L9 1m4 4L9 9"></path>
     </svg>
-  </a> -->
+  </a>
 
   <div class="tabs-lift mt-10">
     <!-- Tab 1 -->
-    <!-- <input
+    <input
       type="radio"
       name="my_tabs_3"
       id="tab1"
@@ -53,32 +52,486 @@ import HorizontalCard from "../components/HorizontalCard.astro";
       for="tab1"
       class="inline-block cursor-pointer peer-checked/tab1:bg-orange-500 peer-checked/tab1:text-white peer-checked/tab1:font-bold px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 transition"
     >
-      Normal Crud
-    </label> -->
+      Register
+    </label>
 
     <!-- Tab 2 -->
-    <!-- <input type="radio" name="my_tabs_3" id="tab2" class="hidden peer/tab2" />
+    <input type="radio" name="my_tabs_3" id="tab2" class="hidden peer/tab2" />
     <label
       data-theme="luxury"
       for="tab2"
       class="cursor-pointer px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 peer-checked/tab2:bg-orange-500 peer-checked/tab2:text-white peer-checked/tab2:font-bold transition"
     >
-      Select Option Crud
-    </label> -->
+      Login
+    </label>
 
-     <!-- tab 2 section -->
-    <!-- <div
+    <!-- tab 2 section -->
+    <div
       class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab2:block"
     >
-      
-    </div> -->
+      <div class="mx-auto max-w-5xl w-full">
+        <h1 class="text-center text-3xl font-bold border-b-4">LOGIN</h1>
 
-  <!--  tab 1 Section -->
-  <div
-    class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block">
-    <b>Currently in progress</b>
-  </div>
+        <!-- CONNECTION Section -->
+        <div class="mt-5">
+          <h1 class="font-bold text-2xl">CONNECTION</h1>
+          <p>
+            To connect to a MySQL database called <code>registerlogin_db</code> hosted
+            on
+            <code>localhost</code> using the username <code>root</code> and no password.
+            If the connection fails, it displays an error message.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+  &lt;?php
+      $servername = "localhost";
+      $dbusername = "root";
+      $dbpassword = "";
+      $dbname = "database_name";
+
+      try &#123;
+          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      &#125; catch(PDOException $e) &#123;
+          echo "Connection failed: " . $e->getMessage();
+          die;  
+      &#125;
+  ?&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END CONNECTION Section -->
 
 
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">loginUser</h1>
+          <p>
+            This function handles user login by checking the provided email and password against the records in the <code>users</code> table in the database.
+            It returns 1 if the login is successful, otherwise it returns 0.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+    function userLogin($json) &#123;
+    // Include the database connection script to use the $conn variable
+    include "connection.php";
+
+    // Decode the incoming JSON string into an associative array
+    $json = json_decode($json, true);
+
+    // Extract the 'email' from the decoded JSON array
+    $email = $json["email"];
+
+    // Extract the 'password' from the decoded JSON array
+    $password = $json["password"];
+
+    // Prepare an SQL query to find a user matching the given email and password
+    $sql = "SELECT user_id, email FROM user WHERE email = :email AND password = :password";
+
+    // Prepare the SQL statement for execution
+    $stmt = $conn->prepare($sql);
+
+    // Bind the email value to the :email placeholder in the SQL statement
+    $stmt->bindParam(':email', $email);
+
+    // Bind the password value to the :password placeholder in the SQL statement
+    $stmt->bindParam(':password', $password);
+
+    // Execute the prepared statement
+    $stmt->execute();
+
+    // Fetch the resulting row as an associative array (if any)
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // If a user is found, return their user_id and email as a JSON-encoded array
+    if ($user) &#123;
+        return json_encode(['user_id' => $user['user_id'], 'email' => $user['email']]);
+    &#125; else &#123;
+        // If no user was found, return an empty JSON array
+        return json_encode([]);
+    &#125;
+    &#125;
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END registerUser Section -->
+
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">API Endpoint Handler</h1>
+          <p>
+            To route requests to the appropriate method of the User class based on what the client wants to do Register a user.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+    $json = isset($_POST['data']) ? $_POST['data'] : '';
+        $operation = $_POST['operation'];
+
+        $user = new Users();
+
+        switch($operation)&#123;
+            case 'userLogin':
+                  echo $user->userLogin($json);
+                  break;
+    &#125;
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END API Endpoint Handler Section -->
+
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">JS loginUser</h1>
+          <p>
+            This JavaScript function handles the login process by sending a POST request to the server with the user's email and password.
+            It uses Axios for making HTTP requests and handles the response accordingly.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-JS">
+    const serverapi = async () => "http://localhost/File_Path.php";
+
+    
+    const loginUser = async (event) => &#123;
+    event.preventDefault();
+
+    const url = await serverapi();
+
+    const jsonData = &#123;
+        email: document.getElementById('email-login').value,
+        password: document.getElementById('password-login').value,
+    &#125;
+
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(jsonData));
+    formData.append('operation', 'userLogin');
+
+     try 
+        const response = await axios.post(url, formData);
+
+        if (response.data.user_id) &#123;
+            window.location.href = "home.html";
+        &#125; else &#123;
+            alert("Login Failed, Wrong Username or Password");
+            console.log(response);
+        &#125;
+    &#125; catch (error) &#123;
+        console.error(error);
+        alert("An error occurred during login");
+    &#125;
+&#125;
+
+    $('#loginForm').on('submit', loginUser);
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END JS loginUser Section -->
+
+         <div class="mt-16">
+          <h1 class="font-bold text-2xl">HTML Login Form</h1>
+          <p>
+            This is the HTML form for user login. It includes fields for email and password, and a submit button to trigger the login process.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-HTML">
+    &lt;form id="loginForm"&gt;
+    &lt;div class="mb-4"&gt;
+        &lt;label for="email-login" class="block text-sm font-medium text-gray-700"&gt;Username&lt;/label&gt;
+        &lt;input type="text" id="email-login" name="email-login" required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-6"&gt;
+        &lt;label for="password-login" class="block text-sm font-medium text-gray-700"&gt;Password&lt;/label&gt;
+        &lt;input type="password" id="password-login" name="password-login" required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"&gt;
+    &lt;/div&gt;
+    &lt;button type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"&gt;Login&lt;/button&gt;
+&lt;/form&gt;
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END HTML Register Form Section -->
+      </div>
+    </div>
+
+    <!--  tab 1 Section -->
+    <div
+      class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block"
+    >
+      <div class="mx-auto max-w-5xl w-full">
+        <h1 class="text-center text-3xl font-bold border-b-4">REGISTER</h1>
+
+        <!-- CONNECTION Section -->
+        <div class="mt-5">
+          <h1 class="font-bold text-2xl">CONNECTION</h1>
+          <p>
+            To connect to a MySQL database called <code>registerlogin_db</code> hosted
+            on
+            <code>localhost</code> using the username <code>root</code> and no password.
+            If the connection fails, it displays an error message.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+  &lt;?php
+      $servername = "localhost";
+      $dbusername = "root";
+      $dbpassword = "";
+      $dbname = "database_name";
+      try &#123;
+          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      &#125; catch(PDOException $e) &#123;
+          echo "Connection failed: " . $e->getMessage();
+          die;  
+      &#125;
+  ?&gt;
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END CONNECTION Section -->
+
+
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">registerUser</h1>
+          <p>
+            This function handles user registration by inserting the provided
+            email and password into the <code>users</code> table in the database.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+    function userRegister($json) &#123;
+        // Include the database connection file to access the $conn object
+        include "connection.php";
+                  
+        // Decode the JSON string into an associative array
+        $json = json_decode($json, true);
+                  
+        // Extract the 'email' field from the decoded array
+        $email = $json["email"];
+                  
+        // Extract the 'password' field from the decoded array
+        $password = $json["password"];
+                  
+        // Prepare an SQL INSERT query with named placeholders for binding parameters
+        $sql = "INSERT INTO user (email, password) VALUES (:email, :password)";
+                  
+        // Prepare the SQL statement for execution
+        $stmt = $conn->prepare($sql);
+                  
+        // Bind the email value to the :email placeholder in the SQL query
+        $stmt->bindParam(':email', $email);
+                  
+        // Bind the password value to the :password placeholder in the SQL query
+        $stmt->bindParam(':password', $password);
+                  
+        // Execute the prepared SQL statement
+        $stmt->execute();
+                  
+        // Check if any rows were inserted; return 1 if successful, 0 otherwise
+        $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+                  
+        // Return the result of the registration attempt
+        return $returnValue;
+    &#125;
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END registerUser Section -->
+
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">API Endpoint Handler</h1>
+          <p>
+            To route requests to the appropriate method of the User class based on what the client wants to do Register a user.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-php">
+    $json = isset($_POST['data']) ? $_POST['data'] : '';
+        $operation = $_POST['operation'];
+
+        $user = new Users();
+
+        switch($operation)&#123;
+            case 'userRegister':
+                echo $user->userRegister($json);
+                break;
+    &#125;
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END API Endpoint Handler Section -->
+
+        <div class="mt-16">
+          <h1 class="font-bold text-2xl">JS registerUser</h1>
+          <p>
+            This JavaScript function handles the registration process by sending a POST request to the server with the user's email and password.
+            It uses Axios for making HTTP requests and handles the response accordingly.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-JS">
+    const serverapi = async () => "http://localhost/File_Path.php";
+
+    
+    const registerUser = async (event) => &#123;
+        event.preventDefault();
+
+        const url = await serverapi();
+
+        const jsonData = &#123;
+            email: document.getElementById('email').value,
+            password: document.getElementById('password-register').value,
+        &#125;;
+
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(jsonData));
+        formData.append('operation', 'userRegister');
+
+        axios.post(url, formData)
+            .then(response => &#123;
+                if (response.data == 1)&#123;
+                    alert ("Registration successful!");
+                    document.getElementById("register-user").reset();
+                    document.querySelector('[data-modal-hide="register-modal"]').click();
+                &#125; else &#123;
+                    alert("Registration failed. Please try again.");
+                &#125;
+            &#125;).catch(err => alert(err));
+    &#125;
+
+    $('#register-user').on('submit', registerUser);
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END JS registerUser Section -->
+
+         <div class="mt-16">
+          <h1 class="font-bold text-2xl">HTML Register Form</h1>
+          <p>
+            This is the HTML form for user registration. It includes fields for email and password, and a submit button to trigger the registration process.
+          </p>
+
+          <div
+            class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+          >
+            <pre
+              class="whitespace-pre text-sm">
+               <code class="language-HTML">
+    &lt;div id="register-modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"&gt;
+    &lt;div class="relative p-4 w-full max-w-md max-h-full"&gt;
+        &lt;!-- Modal content --&gt;
+        &lt;div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"&gt;
+            &lt;!-- Modal header --&gt;
+            &lt;div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200"&gt;
+                &lt;h3 class="text-xl font-semibold text-gray-900 dark:text-white"&gt;
+                    Sign up in to our platform
+                &lt;/h3&gt;
+                &lt;button type="button"
+                    class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="register-modal"&gt;
+                    &lt;svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14"&gt;
+                        &lt;path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" /&gt;
+                    &lt;/svg&gt;
+                    &lt;span class="sr-only"&gt;Close modal&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- Modal body --&gt;
+            &lt;div class="p-4 md:p-5"&gt;
+                &lt;form class="space-y-4" id="register-user" action="#"&gt;
+                    &lt;div&gt;
+                        &lt;label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"&gt;Your
+                            email&lt;/label&gt;
+                        &lt;input type="email" name="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="name@gmail.com" required /&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;label for="password-register"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"&gt;Your
+                            password&lt;/label&gt;
+                        &lt;input type="password" name="password-register" id="password-register" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            required /&gt;
+                    &lt;/div&gt;
+
+                    &lt;button type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"&gt;Create Account&lt;/button&gt;
+
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+                </code>
+            </pre>
+          </div>
+        </div>
+        <!-- END HTML Register Form Section -->
+      </div>
+    </div>
   </div>
 </BaseLayout>
