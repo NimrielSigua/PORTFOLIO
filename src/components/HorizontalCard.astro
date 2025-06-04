@@ -1,5 +1,5 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_self", button } = Astro.props;
+const { title, img, desc, url, badge, tags, target = "_self", button, language } = Astro.props;
 import { Image } from "astro:assets";
 const modalId = `modal_${title.toLowerCase().replace(/\s+/g, "_")}`;
 ---
@@ -23,6 +23,7 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, "_")}`;
           {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
         </h1>
         <p class="py-1 text-1xl">{desc}</p>
+        <h3 class="py-1 font-semibold">{language}</h3>
       </div>
     </a>
 
@@ -41,6 +42,7 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, "_")}`;
     <div class="modal-box w-11/12 max-w-5xl">
       <h3 class="text-lg font-bold">{title}</h3>
       <p class="py-4">{desc}</p>
+      <h3 class="py-1 font-semibold">{language}</h3>
 
 
       {title === "Sigua Sarri-Sari Store" && (
@@ -72,7 +74,14 @@ const modalId = `modal_${title.toLowerCase().replace(/\s+/g, "_")}`;
         </video>
       )}
 
-      {title !== "Math Master" && title !== "Sigua Sarri-Sari Store" && title !== "TriviasTer" && title !== "Recipe Share" && (
+      {title === "Recipe Share Web App" && (
+        <video controls class="w-full rounded-lg mt-4">
+          <source src="/recipeshare_web.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+
+      {title !== "Math Master" && title !== "Sigua Sarri-Sari Store" && title !== "TriviasTer" && title !== "Recipe Share" &&  title !== "Recipe Share Web App" && (
         <p class="text-center text-gray-500 mt-4">There is no video yet. Try to view other project</p>
       )}
 
