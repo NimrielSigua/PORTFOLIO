@@ -1,0 +1,927 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="text-3xl font-bold mb-6">CRUD | Next.js | TS | PHP | MySQL</div>
+
+    <a
+        href="https://github.com/NimrielSigua/nextcrudphp"
+        class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+            ></path>
+        </svg>
+        <span class="w-full">View Source Code</span>
+        <svg
+            class="w-4 h-4 ms-2 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+        >
+            <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+        </svg>
+    </a>
+
+    <div class="tabs-lift mt-10">
+        <!-- Tab 1 -->
+        <input
+            type="radio"
+            name="my_tabs_3"
+            id="tab1"
+            class="hidden peer/tab1"
+            checked
+        />
+        <label
+            data-theme="luxury"
+            for="tab1"
+            class="inline-block cursor-pointer peer-checked/tab1:bg-orange-500 peer-checked/tab1:text-white peer-checked/tab1:font-bold px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 transition"
+        >
+            TypeScript Code
+        </label>
+
+        <!-- Tab 2 -->
+        <input
+            type="radio"
+            name="my_tabs_3"
+            id="tab2"
+            class="hidden peer/tab2"
+        />
+        <label
+            data-theme="luxury"
+            for="tab2"
+            class="cursor-pointer px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 peer-checked/tab2:bg-orange-500 peer-checked/tab2:text-white peer-checked/tab2:font-bold transition"
+        >
+            PHP Code
+        </label>
+
+        <!-- tab 2 section -->
+        <div
+            class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab2:block"
+        >
+            <div class="mx-auto max-w-5xl w-full">
+                <h1 class="text-center text-3xl font-bold border-b-4">
+                    PHP Code
+                </h1>
+
+                <!-- CONNECTION Section -->
+                <div class="mt-5">
+
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 1:</span>
+                        <span class="">
+                            Create <b>Connection.php</b> file
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 2:</span>
+                        <span class="">
+                            Create <b>function.php</b> file
+                        </span>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">Connection code</h1>
+
+                    <p>
+                        To connect to a MySQL database that you created <code
+                            >dbname</code
+                        > hosted on
+                        <code>localhost</code> using the username <code
+                            >root</code
+                        > and no password. If the connection fails, it displays an
+                        error message.
+                    </p>
+
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-php">
+  &lt;?php
+      $servername = "localhost";
+      $dbusername = "root";
+      $dbpassword = "";
+      $dbname = "database_name";
+      try &#123;
+          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      &#125; catch(PDOException $e) &#123;
+          echo "Connection failed: " . $e->getMessage();
+          die;  
+      &#125;
+  ?&gt;
+                </code>
+            </pre>
+                    </div>
+                </div>
+                <!-- END CONNECTION Section -->
+
+                <div class="mt-16">
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 3:</span>
+                        <span class="">
+                            Open <code>function.php</code>.
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 4:</span>
+                        <span class="">
+                            Create a <code>Class</code> name <code
+                                >Users</code
+                            >.
+                        </span>
+                    </div>
+                    <h1 class="font-bold text-2xl mt-5">class Users</h1>
+                    <p>
+                       class Users is a container for organizing all user-related backend functions, promoting clean code, reusability, and maintainability.
+                    </p>
+
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    &lt;?php
+    header('Content-Type: application/json');
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
+
+    // Handle preflight OPTIONS request for CORS
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') &#123;
+        http_response_code(200);
+        exit();
+    &#125;
+    class Users &#123;
+
+        //addUsers
+
+        //getUsers
+
+        //updateUsers
+
+        //deleteUsers
+
+    &#125;
+
+    //Operation Handler
+
+    //switch-case control structure
+
+
+    ?&gt;
+                </code>
+            </pre>
+                    </div>
+                    
+
+                    <h1 class="font-bold text-2xl mt-5">addUsers</h1>
+                    <p class="mt-2" >
+                       The purpose of the addUsers function is to insert a new user’s first name, middle name, and last name into the database and return a success status in JSON format.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    function addUsers($json) &#123;
+    include 'connection.php';
+    $data = is_array($json) ? $json : json_decode($json, true);
+
+    $fname = $data['fname'];
+    $mname = $data['mname'];
+    $lname = $data['lname'];
+
+    $sql = "INSERT INTO users (firstname, middlename, lastname) VALUES (:fname, :mname, :lname)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':fname', $fname);
+    $stmt->bindParam(':mname', $mname);
+    $stmt->bindParam(':lname', $lname);
+    $stmt->execute();
+    $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+    unset($conn);
+    unset($stmt);
+    return json_encode($returnValue);
+&#125;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">getUsers</h1>
+                    <p class="mt-2" >
+                       The purpose of the `getUsers` function is to retrieve all user records from the `users` table in the database and return them as a JSON-encoded array.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+  function getUsers()&#123;
+    include 'connection.php';
+
+    $sql = "SELECT * FROM users";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    unset($conn);
+    unset($stmt);   
+    return json_encode($users);
+&#125;
+            </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">updateUsers</h1>
+                    <p class="mt-2" >
+                      The updateUsers function updates a user's first name, middle name, and last name in the database based on their ID, and returns 1 if successful, otherwise 0.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+function updateUsers($json)&#123;
+    include 'connection.php';
+
+    $data = is_array($json) ? $json : json_decode($json, true);
+    $id = $data['id'];
+    $fname = $data['fname'];
+    $mname = $data['mname'];
+    $lname = $data['lname'];
+
+    $sql = "UPDATE users SET firstname = :fname, middlename = :mname, lastname = :lname WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':fname', $fname);
+    $stmt->bindParam(':mname', $mname);   
+    $stmt->bindParam(':lname', $lname);
+    $stmt->execute();
+    $returnValue = $stmt->rowCount() > 0 ? 1 : 0;
+    unset($conn);
+    unset($stmt);
+    return json_encode($returnValue);
+&#125;
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">deleteUsers</h1>
+                    <p class="mt-2" >
+                      The deleteUsers function deletes a user from the database based on the given user ID and returns 1 if the deletion was successful, otherwise 0.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+function deleteUsers($json)&#123;
+    include 'connection.php';
+
+    $data = is_array($json) ? $json : json_decode($json, true);
+
+    $id = $data['id'];
+
+    $sql = "DELETE FROM users WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $erturnValue = $stmt->rowCount() > 0 ? 1 : 0;
+
+    unset($conn);
+    unset($stmt);
+    return json_encode($erturnValue);
+&#125;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">Operation Handler</h1>
+                    <p class="mt-2" >
+                     This code snippet handles incoming API requests and supports different formats (like JSON in the body or standard POST/GET form data). It determines what operation to perform (like addUsers, deleteUsers, etc.) and retrieves the associated data.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    // Support both JSON and form-data requests
+$operation = null;
+$json = null;
+
+$input = json_decode(file_get_contents('php://input'), true);
+if ($input && isset($input['operation'])) &#123;
+    $operation = $input['operation'];
+    $json = isset($input['json']) ? $input['json'] : null;
+&#125; else if ($_SERVER['REQUEST_METHOD'] === 'POST') &#123;
+    $operation = isset($_POST['operation']) ? $_POST['operation'] : null;
+    $json = isset($_POST['json']) ? $_POST['json'] : null;
+&#125; else if ($_SERVER['REQUEST_METHOD'] === 'GET') &#123;
+    $operation = isset($_GET['operation']) ? $_GET['operation'] : null;
+    $json = isset($_GET['json']) ? $_GET['json'] : null;
+&#125;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">switch-case control structure</h1>
+                    <p class="mt-2" >
+                     This block executes the corresponding method from the Users class based on the given $operation (like addUsers, getUsers, etc.), allowing the backend to perform the requested action and return a response.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+  $users = new Users();
+switch ($operation) &#123;
+    case 'addUsers':
+        echo $users->addUsers($json);
+        break;
+    case 'getUsers':
+        echo $users->getUsers();
+        break;
+    case 'updateUsers':
+        echo $users->updateUsers($json);
+        break;
+    case 'deleteUsers':
+        echo $users->deleteUsers($json);
+        break;
+    default:
+        echo json_encode(['error' => 'Invalid operation']);
+        break;
+&#125;
+                </code>
+            </pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--  tab 1 Section -->
+        <div
+            class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block"
+        >
+            <div class="mx-auto max-w-5xl w-full">
+                <h1 class="text-center text-3xl font-bold border-b-4">
+                    TypeScript Code
+                </h1>
+
+                <!-- CONNECTION Section -->
+                <div class="mt-5">
+                    <h1 class="font-bold text-2xl">
+                        Steps to start a Next.js Project
+                    </h1>
+                    <div class="flex gap-3">
+                        <span class="font-semibold">Step 1:</span>
+                        <span> Open the Terminal </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 2:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            npx create-next-app@latest my-next-app
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 3:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            cd my-next-app
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 4:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            code .
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 5:</span>
+                        <span class="">
+                            Open Xampp, Start the Apche and MySQL
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 6:</span>
+                        <span class="">
+                            Open browser search <b
+                                >"http://localhost/phpmyadmin/"</b
+                            >
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 7:</span>
+                        <span class=""> Create database </span>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 9:</span>
+                        <span class="">
+                            Open <code>app/page.tsx</code> file delete all the default
+                            codes.
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 10:</span>
+                        <span class="">
+                            Create a <code>function Component</code> name <code
+                                >Home</code
+                            >.
+                        </span>
+                    </div>
+                    <h1 class="font-bold text-2xl mt-5">Function Component</h1>
+                    <p>
+                        to define and export the main React component that
+                        Next.js will render for the current page route.
+                    </p>
+
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    export default function Home() &#123;
+
+        //your code here
+                
+    &#125;
+                </code>
+            </pre>
+                    </div>
+                    
+                    <p>
+                       install and use this imports.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+
+    "use client";
+    //To use React and its hooks in your component.
+    import React, &#123; useState, useEffect &#125; from 'react';
+
+    //To use the SweetAlert2 library — a modern JavaScript alert popup.
+    import Swal from 'sweetalert2';   
+
+    export default function Home() &#123;
+
+         &#123;/* useState hook */&#125;
+
+         &#123;/* useEffect */&#125;
+
+         &#123;/* addInfo */&#125;
+
+         &#123;/* fetchUser */&#125;
+
+         &#123;/* handleUpdate */&#125;
+
+         &#123;/* updateUser */&#125;
+
+         &#123;/* handleDelete */&#125;
+
+         &#123;/* Fieldset */&#125;
+
+                
+    &#125;
+                </code>
+            </pre>
+                    </div>
+                    
+
+                    <h1 class="font-bold text-2xl mt-5">useState Hook</h1>
+                    <p class="mt-2" >
+                       These state variables store the input values, the list of users, and the ID of the user currently being edited, allowing your component to manage dynamic data and UI updates.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    const [fname, setFname] = useState("");
+    const [mname, setMname] = useState("");
+    const [lname, setLname] = useState("");
+    const [users, setUsers] = useState([]);
+    const [editId, setEditId] = useState&lt;number | null&gt;(null);
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">Fieldset</h1>
+                    <p class="mt-2" >
+                       These state variables store the input values, the list of users, and the ID of the user currently being edited, allowing your component to manage dynamic data and UI updates.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    // A styled box for grouping related form elements
+&lt;fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"&gt;
+  
+  &#123;/* Title/label for the grouped fields */&#125;
+  &lt;legend className="fieldset-legend"&gt;User Info&lt;/legend&gt;
+
+  &#123;/* Label for the firstname input */&#125;
+  &lt;label className="label"&gt;Firstname&lt;/label&gt;
+  &#123;/* Input for the user's first name, bound to fname state */&#125;
+  &lt;input
+    type="text"
+    className="input" // Tailwind/DaisyUI style for input
+    placeholder="firstname" // Placeholder text inside the input
+    value=&#123;fname&#125; // Controlled input, value tied to fname state
+    onChange=&#123;(e) =&gt; setFname(e.target.value)&#125; // Update fname on input change
+  /&gt;
+
+  &#123;/* Label for the middlename input */&#125;
+  &lt;label className="label"&gt;Middlename&lt;/label&gt;
+  &#123;/* Input for the user's middle name, bound to mname state */&#125;
+  &lt;input
+    type="text"
+    className="input"
+    placeholder="middlename"
+    value=&#123;mname&#125;
+    onChange=&#123;(e) =&gt; setMname(e.target.value)&#125;
+  /&gt;
+
+  &#123;/* Label for the lastname input */&#125;
+  &lt;label className="label"&gt;Lastname&lt;/label&gt;
+  &#123;/* Input for the user's last name, bound to lname state */&#125;
+  &lt;input
+    type="text"
+    className="input"
+    placeholder="lastname"
+    value=&#123;lname&#125;
+    onChange=&#123;(e) =&gt; setLname(e.target.value)&#125;
+  /&gt;
+
+  &#123;/* Conditionally show "Update User" if editing an existing user */&#125;
+  &#123;editId ? (
+    &lt;button onClick=&#123;updateUser&#125; className="btn btn-warning mt-4"&gt;
+      Update User
+    &lt;/button&gt;
+  ) : (
+    // Otherwise, show "Add User" if creating a new one
+    &lt;button onClick=&#123;addInfo&#125; className="btn btn-neutral mt-4"&gt;
+      Add User
+    &lt;/button&gt;
+  )&#125;
+
+  &#123;/* Show a Cancel button if in edit mode */&#125;
+  &#123;editId &amp;&amp; (
+    &lt;button
+      onClick=&#123;() =&gt; &#123;
+        // Reset edit mode and clear all input fields
+        setEditId(null);
+        setFname("");
+        setMname("");
+        setLname("");
+      &#125;&#125;
+      className="btn btn-secondary mt-4 ml-2"
+    &gt;
+      Cancel
+    &lt;/button&gt;
+  )&#125;
+&lt;/fieldset&gt;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">addInfo</h1>
+                    <p class="mt-2" >
+                       save the user fname, mname and lname to the database.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+// Define an async function named addInfo that handles form or button click events 
+const addInfo = async (e: React.FormEvent | React.MouseEvent) =&gt; &#123;
+  e.preventDefault(); // Prevent the default form submission behavior
+
+  // Create the data object to be sent to the backend
+  const data = &#123;
+    operation: 'addUsers', // Specify the operation to perform in PHP
+    json: &#123; fname, mname, lname &#125;, // Include user data from input states
+  &#125;;
+
+  try &#123;
+    // Send the data to the backend using fetch with POST method
+    const response = await fetch('http://localhost/File_Path.php', &#123;
+      method: 'POST',
+      headers: &#123;
+        'Content-Type': 'application/json', // Set request header to JSON
+      &#125;,
+      body: JSON.stringify(data), // Convert data object to JSON string
+    &#125;);
+
+    const result = await response.json(); // Parse JSON response from backend
+
+    if (result === 1) &#123;
+      // If operation is successful (response is 1), show success alert
+      Swal.fire(&#123;
+        title: 'Success!',
+        text: 'Transaction added successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      &#125;);
+
+      // Clear the input fields
+      setFname("");
+      setMname("");
+      setLname("");
+      fetchUser(); // Refresh the user list after adding
+
+    &#125; else &#123;
+      // If operation failed, show error alert
+      Swal.fire(&#123;
+        title: 'Error!',
+        text: 'Failed to add transaction.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      &#125;);
+    &#125;
+  &#125; catch (error) &#123;
+    // Catch and log any errors during the request
+    console.error('Error:', error);
+    Swal.fire(&#123;
+      title: 'Error!',
+      text: 'An error occurred. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    &#125;);
+  &#125;
+&#125;;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">fetchUser</h1>
+                    <p class="mt-2" >
+                       To fetch a list of users from a PHP backend and store that list in the component's users state so it can be displayed or used in the UI.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+// Define an asynchronous function to fetch user data from the server
+const fetchUser = async () =&gt; &#123;
+  try &#123;
+    // Make a POST request to the PHP backend endpoint
+    const response = await fetch('http://localhost/File_Path', &#123;
+      method: 'POST', // Specify HTTP method as POST
+      headers: &#123;
+        'Content-Type': 'application/json', // Set the request header to send JSON
+      &#125;,
+      // Send a JSON body with an 'operation' key to instruct the backend what to do
+      body: JSON.stringify(&#123; operation: 'getUsers' &#125;),
+    &#125;);
+
+    // If the response is not successful (status code is not in the 200 range), throw an error
+    if (!response.ok) &#123;
+      throw new Error(`HTTP error! status: &#36;&#123;response.status&#125;`);
+    &#125;
+
+    // Parse the response body as JSON
+    const data = await response.json();
+
+    // Update the state variable `users` with the fetched data
+    setUsers(data);
+  &#125; catch (error) &#123;
+    // If an error occurs (network error, JSON parse error, etc.), log it to the console
+    console.error('Error fetching customers:', error);
+  &#125;
+&#125;;
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">useEffect</h1>
+                    <p class="mt-2" >
+                      The useEffect hook with an empty dependency array runs the <code>fetchUser()</code>  function once when the component first mounts, ensuring the user data is loaded when the page loads.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    useEffect(() => &#123;
+    fetchUser();
+  &#125;, []);
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">handleUpdate</h1>
+                    <p class="mt-2" >
+                      The purpose of the handleUpdate function is to load a selected user's data into the input fields and enable edit mode so their information can be updated.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+  const handleUpdate = (user: any) => &#123;
+    setEditId(user.id);
+    setFname(user.firstname);
+    setMname(user.middlename);
+    setLname(user.lastname);
+  &#125;
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">updateUser</h1>
+                    <p class="mt-2" >
+                      Update an existing user's information in the database from a React frontend.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+// Define an asynchronous function called updateUser that handles form submission or button click
+const updateUser = async (e: React.FormEvent | React.MouseEvent) => &#123;
+  e.preventDefault(); // Prevent the default form submission or button behavior (e.g., page reload)
+
+  // Prepare the data to be sent to the PHP backend
+  const data = &#123;
+    operation: 'updateUsers', // Tell the backend which operation to perform (e.g., update user)
+    json: &#123; id: editId, fname, mname, lname &#125;, // Pass the user ID and updated names as JSON
+  &#125;;
+
+  try &#123;
+    // Send a POST request to the PHP backend endpoint
+    const response = await fetch('http://localhost/File_Path', &#123;
+      method: 'POST', // Use HTTP POST method
+      headers: &#123;
+        'Content-Type': 'application/json', // Specify content type as JSON
+      &#125;,
+      body: JSON.stringify(data), // Convert the JavaScript object to a JSON string
+    &#125;);
+
+    // Parse the JSON response from the server
+    const result = await response.json();
+
+    // If the server response equals 1 (success flag)
+    if (result === 1) &#123;
+      // Show a success message using SweetAlert
+      Swal.fire(&#123;
+        title: 'Success!',
+        text: 'User updated successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      &#125;);
+
+      // Clear the form input fields after successful update
+      setFname("");
+      setMname("");
+      setLname("");
+
+      // Reset the edit mode by setting editId to null
+      setEditId(null);
+
+      // Refresh the list of users to reflect the updated data
+      fetchUser();
+    &#125; else &#123;
+      // If the response is not 1, show an error message using SweetAlert
+      Swal.fire(&#123;
+        title: 'Error!',
+        text: 'Failed to update user.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      &#125;);
+    &#125;
+  &#125; catch (error) &#123;
+    // Catch and log any errors during the fetch or processing
+    console.error('Error:', error);
+
+    // Show a general error message using SweetAlert
+    Swal.fire(&#123;
+      title: 'Error!',
+      text: 'An error occurred. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    &#125;);
+  &#125;
+&#125;;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">handleDelete</h1>
+                    <p class="mt-2" >
+                      The purpose of handleDelete is to safely and interactively delete a user record from the backend, while providing user feedback and ensuring the UI stays updated.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+// Define an asynchronous function to handle deleting a user
+const handleDelete = async (user: any) => &#123;
+  
+  // Show a confirmation dialog using SweetAlert to confirm deletion
+  const confirm = await Swal.fire(&#123;
+    title: 'Are you sure?',                 // Dialog title
+    text: 'This action cannot be undone!',  // Dialog message
+    icon: 'warning',                        // Warning icon
+    showCancelButton: true,                 // Include a Cancel button
+    confirmButtonText: 'Yes, delete it!',   // Text for the confirm button
+  &#125;);
+
+  // Proceed only if the user confirmed the deletion
+  if (confirm.isConfirmed) &#123;
+    try &#123;
+      // Prepare the data to be sent to the PHP backend
+      const data = &#123;
+        operation: 'deleteUsers',         // Operation type for backend
+        json: &#123; id: user.id &#125;,   // Send the ID of the user to be deleted
+      &#125;;
+
+      // Send a POST request to the PHP backend to delete the user
+      const response = await fetch('http://localhost/File_Path', &#123;
+        method: 'POST',                   // HTTP method
+        headers: &#123;
+          'Content-Type': 'application/json', // Set content type to JSON
+        &#125;,
+        body: JSON.stringify(data),       // Convert the data object to a JSON string
+      &#125;);
+
+      // Parse the JSON response from the backend
+      const result = await response.json();
+
+      // If the result is 1 (success indicator), show success message
+      if (result === 1) &#123;
+        Swal.fire('Deleted!', 'User has been deleted.', 'success'); // Show success alert
+        fetchUser(); // Refresh the user list after deletion
+      &#125; else &#123;
+        // If deletion failed, show an error alert
+        Swal.fire('Error!', 'Failed to delete user.', 'error');
+      &#125;
+    &#125; catch (error) &#123;
+      // If there's an error during fetch or processing, log it and show an error alert
+      console.error('Error:', error);
+      Swal.fire('Error!', 'An error occurred. Please try again.', 'error');
+    &#125;
+  &#125;
+&#125;;
+
+                </code>
+            </pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
