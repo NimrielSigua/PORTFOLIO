@@ -1,0 +1,854 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="text-3xl font-bold mb-6">
+        CRUD | Next.js | TS | MongoDB atlas
+    </div>
+
+    <a
+        href="https://github.com/NimrielSigua/nextcrudphp"
+        class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+            ></path>
+        </svg>
+        <span class="w-full">View Source Code</span>
+        <svg
+            class="w-4 h-4 ms-2 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+        >
+            <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+        </svg>
+    </a>
+
+    <div class="tabs-lift mt-10">
+        <!-- Tab 1 -->
+        <input
+            type="radio"
+            name="my_tabs_3"
+            id="tab1"
+            class="hidden peer/tab1"
+            checked
+        />
+        <label
+            data-theme="luxury"
+            for="tab1"
+            class="inline-block cursor-pointer peer-checked/tab1:bg-orange-500 peer-checked/tab1:text-white peer-checked/tab1:font-bold px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 transition"
+        >
+            Simple Crud
+        </label>
+
+        <!-- Tab 2 -->
+        <!-- <input
+            type="radio"
+            name="my_tabs_3"
+            id="tab2"
+            class="hidden peer/tab2"
+        />
+        <label
+            data-theme="luxury"
+            for="tab2"
+            class="cursor-pointer px-4 py-2 rounded hover:bg-orange-200 hover:text-orange-600 peer-checked/tab2:bg-orange-500 peer-checked/tab2:text-white peer-checked/tab2:font-bold transition"
+        >
+            PHP Code
+        </label> -->
+
+        <!-- tab 2 section -->
+        <div
+            class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab2:block"
+        >
+           
+        </div>
+
+        <!--  tab 1 Section -->
+        <div
+            class="tab-content p-2 sm:p-6 max-w-full overflow-x-auto hidden peer-checked/tab1:block"
+        >
+            <div class="mx-auto max-w-5xl w-full">
+                <h1 class="text-center text-3xl font-bold border-b-4">
+                    TypeScript Code
+                </h1>
+
+                <!-- CONNECTION Section -->
+                <div class="mt-5">
+                    <h1 class="font-bold text-2xl">
+                        Steps to start a Next.js Project
+                    </h1>
+                    <div class="flex gap-3">
+                        <span class="font-semibold">Step 1:</span>
+                        <span> Open the Terminal </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 2:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            npx create-next-app@latest my-next-app
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 3:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            cd my-next-app
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 4:</span>
+                        <span
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md mt-1 overflow-x-auto max-w-full"
+                        >
+                            code .
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold">Step 5:</span>
+                        <span class="">
+                            Sign in to MongoDB Atlas then create a cluster
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <span class="font-semibold">Step 6:</span>
+                        <span>
+                            Create <code>.env</code> file then paste this:
+                        </span>
+                        <div
+                            class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md overflow-x-auto max-w-full"
+                        >
+                            MONGODB_URI=mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0.iyxkcjc.mongodb.net/&lt;database_name&gt;
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start">
+                        <span class="font-semibold">Step 7:</span>
+                        <span class=""> Create <code>lib</code> folder and <code>mongodb.ts</code> </span>
+                        
+                          <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    import mongoose from "mongoose";
+
+    const connectMongoDB = async () => &#123;
+    console.log("MONGODB_URI:", process.env.MONGODB_URI);
+
+    try&#123;
+        const uri = process.env.MONGODB_URI;
+        if (!uri) &#123;
+            throw new Error("MONGODB_URI environment variable is not defined");
+        &#125;
+        await mongoose.connect(uri);
+        console.log("connected successfully");
+
+        &#125; catch (error) &#123;
+            console.log("Connection error:", error); 
+
+        &#125;
+    &#125;
+    
+    export default connectMongoDB;
+                </code>
+            </pre>
+                    </div>
+                        
+                    </div>
+                    
+
+                </div>
+
+                <div class="">
+                    <div class="flex flex-col items-start">
+                        <span class="font-semibold">Step 8:</span>
+                        <span class="">
+                            Open <code>app/page.tsx</code> file delete all the default
+                            codes.
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <span class="font-semibold">Step 9:</span>
+                        <span class="">
+                            Create a <code>function Component</code> name <code
+                                >Home</code
+                            >.
+                        </span>
+                    </div>
+                    <h1 class="font-bold text-2xl mt-5">Function Component</h1>
+                    <p>
+                        to define and export the main React component that
+                        Next.js will render for the current page route.
+                    </p>
+
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    "use client"
+    import &#123; useState, useEffect &#125; from "react";
+    export default function Home() &#123;
+        //useState hook
+
+        //useEffect
+
+        //fetchUsers
+
+        //submitUsers
+
+        //handleDelete
+
+    return(
+        &lt;&gt;
+        //form
+
+        //table
+        &lt;/&gt;
+    )
+
+                
+    &#125;
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">useState Hook</h1>
+                    <p class="mt-2">
+                        These state variables store the input values, the list
+                        of users, and the ID of the user currently being edited,
+                        allowing your component to manage dynamic data and UI
+                        updates.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    const [fname, setFname] = useState(""); // Stores first name
+    const [mname, setMname] = useState(""); // Stores middle name
+    const [lname, setLname] = useState(""); // Stores last name
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">form</h1>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+   &lt;form onSubmit=&#123;submitUsers&#125;&gt;
+  &lt;input
+    type="text"
+    placeholder="First Name"
+    value=&#123;fname&#125;
+    onChange=&#123;(e) =&gt; setFname(e.target.value)&#125;
+  /&gt;
+  &lt;input
+    type="text"
+    placeholder="Middle Name"
+    value=&#123;mname&#125;
+    onChange=&#123;(e) =&gt; setMname(e.target.value)&#125;
+  /&gt;
+  &lt;input
+    type="text"
+    placeholder="Last Name"
+    value=&#123;lname&#125;
+    onChange=&#123;(e) =&gt; setLname(e.target.value)&#125;
+  /&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <div class="flex flex-col items-start mt-5">
+                        <span class="font-semibold">Step 10:</span>
+                        <span class="">
+                            Create a <code>models</code> folder, then create users.tsx.
+                        </span>
+
+                        <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    // Import the main mongoose object and the Schema constructor from the mongoose package
+    import mongoose, &#123; Schema &#125; from 'mongoose';
+                
+    // Define the structure (schema) of the "Users" collection in the database
+    const userSchema = new Schema(&#123;
+      // 'firstname' is a required string field
+      firstname: &#123; type: String, required: true &#125;,
+                
+      // 'middlename' is an optional string field
+      middlename: &#123; type: String &#125;,
+                
+      // 'lastname' is a required string field
+      lastname: &#123; type: String, required: true &#125;,
+    &#125;);
+                
+    // Create a model called 'Users' from the userSchema
+    // If the model already exists in the mongoose models cache, reuse it (important for development to avoid overwrite errors)
+    // Otherwise, create a new model named 'Users' using the schema
+    const Users = mongoose.models.Users || mongoose.model('Users', userSchema);
+                
+    // Export the Users model so it can be used in other parts of the app (e.g. for inserting/finding users)
+    export default Users;
+        </code>
+            </pre>
+                        </div>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">submitUsers</h1>
+                    <p class="mt-2">
+                        save the user fname, mname and lname to the database.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+const submitUsers = async (e: React.FormEvent&lt;HTMLFormElement&gt;) =&gt; &#123;
+  e.preventDefault(); // Prevent page reload on form submission
+
+  try &#123;
+    // Send a POST request to your backend API route
+    const res = await fetch("http://localhost:3000/api/users/", &#123;
+      method: "POST",
+      headers: &#123;
+        "Content-Type": "application/json", // Tell the server you're sending JSON
+      &#125;,
+      // Convert state values into JSON to send to the server
+      body: JSON.stringify(&#123; firstname: fname, middlename: mname, lastname: lname &#125;),
+    &#125;);
+
+    if (res.ok) &#123;
+      const data = await res.json(); // Parse the JSON response from the server
+
+      setTimeout(() =&gt; &#123;
+        // Here you're checking a 'role' field, but this might not exist in the response
+        // You can change this to check data.message or just alert success
+        alert("User inserted successfully!");
+      &#125;, 1500);
+    &#125; else &#123;
+      const errorData = await res.json();
+      console.error("Server error:", errorData);
+      alert("Failed to insert user.");
+    &#125;
+  &#125; catch (error) &#123;
+    console.error("Submission error:", error); // Catch network or code errors
+    alert("Error occurred while submitting the form.");
+  &#125;
+&#125;;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">table</h1>
+                    <p class="mt-2">
+                        where the data show.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+
+    &lt;table className="table-auto w-full border"&gt;
+      &lt;thead&gt;
+        &lt;tr className="bg-gray-100"&gt;
+          &lt;th className="border px-4 py-2"&gt;First Name&lt;/th&gt;
+          &lt;th className="border px-4 py-2"&gt;Middle Name&lt;/th&gt;
+          &lt;th className="border px-4 py-2"&gt;Last Name&lt;/th&gt;
+          &lt;th className="border px-4 py-2"&gt;Action&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &#123;users.length === 0 ? (
+          &lt;tr&gt;
+            &lt;td colSpan=&#123;3&#125; className="text-center p-4"&gt;
+              No users found.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        ) : (
+          users.map((user) =&gt; (
+            &lt;tr key=&#123;user._id&#125;&gt;
+              &lt;td className="border px-4 py-2"&gt;&#123;user.firstname&#125;&lt;/td&gt;
+              &lt;td className="border px-4 py-2"&gt;&#123;user.middlename || '-'&#125;&lt;/td&gt;
+              &lt;td className="border px-4 py-2"&gt;&#123;user.lastname&#125;&lt;/td&gt;
+              &lt;td className="border px-4 py-2"&gt;
+                &lt;a href={`/edit/&#123;user._id&#125;`} className="text-blue-500 underline"&gt;Edit&lt;/a&gt;
+                &lt;button
+                  onClick=&#123;() =&gt; handleDelete(user._id)&#125;
+                  className="text-red-500 underline"
+                &gt;
+                  Delete
+                &lt;/button&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          ))
+        )&#125;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">table</h1>
+                    <p class="mt-2">
+                        where the data show.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+
+    type User = &#123;
+    _id: string;
+    firstname: string;
+    middlename?: string;
+    lastname: string;
+    &#125;;
+
+    const [users, setUsers] = useState &lt;User[] &gt;([]);
+
+       const fetchUsers = async () =&gt; &#123;
+        try &#123;
+        // Send a GET request to the API route `/api/users`
+        const res = await fetch("http://localhost:3000/api/users/");
+
+        // Parse the JSON response
+        const data = await res.json();
+
+        // Update the `users` state with the fetched users list
+        // If `data.users` is undefined, fallback to an empty array
+        setUsers(data.users || []);
+      &#125; catch (err) &#123;
+        // Log any error that occurs during the fetch
+        console.error('Failed to fetch users:', err);
+      &#125;
+    &#125;;
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">useEffect</h1>
+                    <p class="mt-2">
+                        The useEffect hook with an empty dependency array runs
+                        the <code>fetchUser()</code> function once when the component
+                        first mounts, ensuring the user data is loaded when the page
+                        loads.
+                    </p>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    useEffect(() => &#123;
+    fetchUser();
+  &#125;, []);
+                </code>
+            </pre>
+                    </div>
+
+
+                    <h1 class="font-bold text-2xl mt-5">handleDelete</h1>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    const handleDelete = async (id: string) =&gt; &#123;
+      if (!confirm("Are you sure you want to delete this user?")) return;
+
+      try &#123;
+        const res = await fetch(`http://localhost:3000/api/users/$&#123;id&#125;`, &#123;
+          method: "DELETE",
+        &#125;);
+
+        if (res.ok) &#123;
+          alert("User deleted successfully!");
+          fetchUsers(); // Refresh list after deletion
+        &#125; else &#123;
+          const errorData = await res.json();
+          alert("Failed to delete user: " + errorData.message);
+        &#125;
+      &#125; catch (err) &#123;
+        console.error("Delete error:", err);
+        alert("Error occurred while deleting the user.");
+      &#125;
+    &#125;;
+
+                </code>
+            </pre>
+                    </div>
+
+
+
+                    <div class="flex flex-col items-start mt-5">
+                        <span class="font-semibold">Step 11:</span>
+                        <span class="">
+                            Create a <code>edit</code> folder and <code>[id]</code> folder inside, then create page.tsx.</span>
+                        
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md overflow-x-auto max-w-full">
+                        <pre>
+                            <code>
+    app/
+    ├── edit/
+    │   └── [id]/
+    │       └── page.tsx
+                            </code>
+                        </pre>
+                        </div>
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 mt-3 rounded-md overflow-x-auto max-w-full">
+                        <pre class="whitespace-pre text-sm">
+                            <code class="language-TS">
+    "use client"
+    import &#123; useState, useEffect &#125; from "react";
+    import &#123; useParams, useRouter &#125; from "next/navigation";
+
+    export default function EditUserPage() &#123;
+         // Get the dynamic route parameter from the URL (e.g., /users/123)
+    const params = useParams();
+
+    // Extract the `id` from params (handle if it's an array or a single value)
+    const id = Array.isArray(params.id) ? params.id[0] : params.id;
+
+    // Initialize the router object to enable navigation
+    const router = useRouter();
+
+    // Set up state variables to hold the user's first, middle, and last names
+    const [firstname, setFirstname] = useState("");
+    const [middlename, setMiddlename] = useState("");
+    const [lastname, setLastname] = useState("");
+
+
+    //useEffect
+
+    //handleUpdate
+
+    return(
+    
+    //editform
+
+    )
+
+    &#125;
+                            </code>
+                        </pre>
+                        </div>
+
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">useEffect</h1>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+// Fetch the user's current data when the component loads or when the `id` changes
+useEffect(() =&gt; &#123;
+  const fetchUser = async () =&gt; &#123;
+    // Send a GET request to your API to fetch the user by ID
+    const res = await fetch(`http://localhost:3000/api/users/$&#123;id&#125;`);
+    const data = await res.json(); // Parse JSON response
+
+    // Support for both single user object (`user`) or list (`users`)
+    const user = data.user || data.users?.[0];
+
+    // If user data exists, populate the state fields
+    if (user) &#123;
+      setFirstname(user.firstname);              // Set first name
+      setMiddlename(user.middlename || "");      // Set middle name (or empty string if null)
+      setLastname(user.lastname);                // Set last name
+    &#125;
+  &#125;;
+
+  // Run fetchUser only if `id` exists
+  if (id) fetchUser();
+&#125;, [id]); // Dependency array: re-run this effect when `id` changes
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">editform</h1>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+&lt;form onSubmit=&#123;handleUpdate&#125;&gt;
+  &lt;h2 className="text-xl font-bold mb-4"&gt;Edit User&lt;/h2&gt;
+  &lt;input
+    type="text"
+    value=&#123;firstname&#125;
+    onChange=&#123;(e) =&gt; setFirstname(e.target.value)&#125;
+    placeholder="First Name"
+    className="block mb-2"
+  /&gt;
+  &lt;input
+    type="text"
+    value=&#123;middlename&#125;
+    onChange=&#123;(e) =&gt; setMiddlename(e.target.value)&#125;
+    placeholder="Middle Name"
+    className="block mb-2"
+  /&gt;
+  &lt;input
+    type="text"
+    value=&#123;lastname&#125;
+    onChange=&#123;(e) =&gt; setLastname(e.target.value)&#125;
+    placeholder="Last Name"
+    className="block mb-4"
+  /&gt;
+  &lt;button type="submit" className="bg-blue-500 text-white px-4 py-2"&gt;
+    Update User
+  &lt;/button&gt;
+&lt;/form&gt;
+
+                </code>
+            </pre>
+                    </div>
+
+                    <h1 class="font-bold text-2xl mt-5">handleUpdate</h1>
+                    <div
+                        class="bg-[#23272e] text-[#f8f8f2] p-4 rounded-md mt-4 overflow-x-auto max-w-full"
+                    >
+                        <pre
+                            class="whitespace-pre text-sm">
+               <code class="language-TS">
+    const handleUpdate = async (e: React.FormEvent) =&gt; &#123;
+      e.preventDefault(); // Prevent form from reloading the page
+
+      try &#123;
+        // Send a PUT request to update the user's data
+        const res = await fetch(`/api/users/$&#123;id&#125;`, &#123;
+          method: "PUT", // HTTP method
+          headers: &#123;
+            "Content-Type": "application/json", // Sending JSON data
+          &#125;,
+          // Request body includes updated user data
+          body: JSON.stringify(&#123; firstname, middlename, lastname &#125;),
+        &#125;);
+
+        // If request was successful, alert the user and redirect to home page
+        if (res.ok) &#123;
+          alert("User updated successfully!");
+          router.push("/"); // Navigate to homepage
+        &#125; else &#123;
+          // If request failed, show an error alert
+          alert("Failed to update user.");
+        &#125;
+      &#125; catch (err) &#123;
+        // Catch and log any network or server errors
+        console.error("Update error:", err);
+        alert("An error occurred.");
+      &#125;
+    &#125;;
+                </code>
+            </pre>
+                    </div>
+
+                    <div class="flex flex-col items-start mt-5">
+                        <span class="font-semibold">Step 12:</span>
+                        <span class="">
+                            Create a <code>api</code> folder then create <code>route.ts</code>.</span>
+                        
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md overflow-x-auto max-w-full">
+                        <pre>
+                            <code>
+    app/
+    ├── api/
+    │     └── route.ts
+                            </code>
+                        </pre>
+                        </div>
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 mt-3 rounded-md overflow-x-auto max-w-full">
+                        <pre class="whitespace-pre text-sm">
+                            <code class="language-TS">
+   // Import the MongoDB connection utility
+    import connectMongoDB from '@/lib/mongodb';
+
+    // Import the Users model (schema for MongoDB collection)
+    import Users from '@/models/users';
+
+    // Import Next.js response helper for API routes
+    import &#123; NextResponse &#125; from 'next/server';
+
+    // ==============================
+    // POST Request Handler - Create a User
+    // ==============================
+
+    export async function POST(request: Request) &#123;
+      try &#123;
+        // Wait for and parse the JSON body from the request
+        const &#123; firstname, middlename, lastname &#125; = await request.json();
+
+        // Connect to the MongoDB database
+        await connectMongoDB();
+
+        // Insert a new user document into the MongoDB 'users' collection
+        await Users.create(&#123; firstname, middlename, lastname &#125;);
+
+        // Return a success response with status 201 (Created)
+        return NextResponse.json(&#123; message: 'User inserted successfully' &#125;, &#123; status: 201 &#125;);
+
+      &#125; catch (error: any) &#123;
+        // If an error occurs, return a 500 response with the error message
+        return NextResponse.json(&#123; error: error.message &#125;, &#123; status: 500 &#125;);
+      &#125;
+    &#125;
+
+    // ==============================
+    // GET Request Handler - Get All Users
+    // ==============================
+
+    export async function GET() &#123;
+      try &#123;
+        // Connect to the MongoDB database
+        await connectMongoDB();
+
+        // Fetch all user documents from the MongoDB 'users' collection
+        const users = await Users.find();
+
+        // Return the fetched users with status 200 (OK)
+        return NextResponse.json(&#123; users &#125;, &#123; status: 200 &#125;);
+
+      &#125; catch (error: any) &#123;
+        // If an error occurs, return a 500 response with the error message
+        return NextResponse.json(&#123; error: error.message &#125;, &#123; status: 500 &#125;);
+      &#125;
+    &#125;
+
+                            </code>
+                        </pre>
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-col items-start mt-5">
+                        <span class="font-semibold">Step 13:</span>
+                        <span class="">
+                            Create a <code>[id]</code> folder then create <code>route.ts</code>.</span>
+                        
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 rounded-md overflow-x-auto max-w-full">
+                        <pre>
+                            <code>
+    app/
+    ├── api/
+    │   └── [id]/
+    │       └── route.ts
+                            </code>
+                        </pre>
+                        </div>
+                       <div class="bg-[#23272e] text-[#f8f8f2] p-2 mt-3 rounded-md overflow-x-auto max-w-full">
+                        <pre class="whitespace-pre text-sm">
+                            <code class="language-TS">
+   // Import MongoDB connection and User model
+    import connectMongoDB from '@/lib/mongodb';
+    import Users from '@/models/users';
+    import &#123; NextResponse &#125; from 'next/server';
+
+    // GET method: fetch a user by their ID
+    export async function GET(request: Request, &#123; params &#125;: &#123; params: &#123; id: string &#125; &#125;) &#123;
+      const &#123; id &#125; = params; // Extract the user ID from the route params
+
+      try &#123;
+        await connectMongoDB(); // Connect to MongoDB
+        const user = await Users.findById(id); // Find the user by ID
+
+        // If user doesn't exist, return 404
+        if (!user) &#123;
+          return NextResponse.json(&#123; message: "User not found" &#125;, &#123; status: 404 &#125;);
+        &#125;
+
+        // Return the found user
+        return NextResponse.json(&#123; user &#125;, &#123; status: 200 &#125;);
+      &#125; catch (error: any) &#123;
+        // Handle any unexpected server/database errors
+        return NextResponse.json(&#123; message: error.message &#125;, &#123; status: 500 &#125;);
+      &#125;
+    &#125;
+
+    // PUT method: update a user by their ID
+    export async function PUT(request: Request, &#123; params &#125;: &#123; params: &#123; id: string &#125; &#125;) &#123;
+      const &#123; id &#125; = params; // Extract the user ID
+      const &#123; firstname, middlename, lastname &#125; = await request.json(); // Get new data from request body
+
+      await connectMongoDB(); // Connect to MongoDB
+
+      // Update the user with the new data
+      await Users.findByIdAndUpdate(id, &#123;
+        firstname,
+        middlename,
+        lastname,
+      &#125;);
+
+      // Respond with a success message
+      return NextResponse.json(&#123; message: "User updated successfully" &#125;);
+    &#125;
+
+    export async function DELETE(request: Request, &#123; params &#125;: &#123; params: &#123; id: string &#125; &#125;) &#123;
+      try &#123;
+        await connectMongoDB();
+        const deletedUser = await Users.findByIdAndDelete(params.id);
+
+        if (!deletedUser) &#123;
+          return NextResponse.json(&#123; message: "User not found" &#125;, &#123; status: 404 &#125;);
+        &#125;
+
+        return NextResponse.json(&#123; message: "User successfully deleted" &#125;, &#123; status: 200 &#125;);
+      &#125; catch (error: any) &#123;
+        return NextResponse.json(&#123; message: error.message &#125;, &#123; status: 500 &#125;);
+      &#125;
+    &#125;
+
+
+                            </code>
+                        </pre>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
